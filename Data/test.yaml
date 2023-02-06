@@ -1,0 +1,12 @@
+test/foundry/BitMap.t.sol:BitMapTest:
+- testBitMap(): 42805
+test/foundry/DeOrder/AbortOrder.t.sol:AbortOrder:
+- testAbortOrder(): 384113
+- testCannotAbortOrder(): 343148
+- testCannotConfirmIusserAbortOrder(): 336298
+- testCannotConfirmWorkerAbortOrder(): 336694
+- testCannotDueIusserAbortOrder(): 395681
+- testCannotDueWorkerAbortOrder(): 336485
+- testCannotSetDeStage(): 13831
+- testConfirmLongtime(): 360477
+- testDueLongtime(): 345071
