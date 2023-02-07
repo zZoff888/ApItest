@@ -27,7 +27,7 @@ class New():
         # print(url)
         log = logger()
         # print(bady)
-        with requests.get(url=url,json=bady) as response:
+        with requests.post(url=url,json=bady) as response:
             log.info('分页获取所有文章列表：%s' % response.json()['msg']+'\n位置为:API.NewApi.getNewsList')
             # print(response.json())
             return response.json()['msg']
@@ -66,11 +66,11 @@ class New():
             return response.json()['msg']
 
 if __name__ == '__main__':
-    bady={"id": 1}
-    New.getNewsInfo('/news/getNewsInfo',bady)
+    # bady={"id": 3}
+    # New.getNewsInfo('/news/getNewsInfo',bady)
     #
-    # bady={"page": 1,"pagesize": 10}
-    # New.getNewsList('/news/getNewsList',bady)
+    bady={"page": 1,"pagesize": 10}
+    New.getNewsList('/news/getNewsList',bady)
     #
     # bady={}
     # New.getNewsListLimit('/news/getNewsListLimit',bady)

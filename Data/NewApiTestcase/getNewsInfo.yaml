@@ -1,0 +1,39 @@
+tests:
+  - case: 传参为空  # 测试用例名称
+    http:  # 请求对象
+      path: /news/getNewsInfo
+      headers:
+        User-Agent:
+      params: #请求体
+        id: 1
+    expected:  # 预期结果
+      response:
+        status: True
+        message: Success
+        data: True
+
+  - case: 传参为负数
+    http:
+      path: /news/getNewsInfo
+      headers:
+        User-Agent:
+      params: #请求体
+        id: 1
+    expected:
+      response:
+        status: True
+        message: Success
+        data: True
+
+  - case: 正常传参
+    http:
+      path: /news/getNewsInfo
+      headers:
+        User-Agent:
+      params:
+        id: 1
+    expected:
+      response:
+        status: True
+        message: Success
+        data: True

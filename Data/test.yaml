@@ -1,4 +1,3 @@
----
 tests:
   - case: 1111111  # 测试用例名称
     http:  # 请求对象
@@ -6,7 +5,7 @@ tests:
       path: proxy/
       method: GET
       headers:
-        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+        User-Agent: 1
       params:
         about: all
     expected:  # 预期结果
@@ -20,7 +19,7 @@ tests:
       path: proxy/
       method: GET
       headers:
-        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+        User-Agent: 1
       params:
         about: valid
     expected:

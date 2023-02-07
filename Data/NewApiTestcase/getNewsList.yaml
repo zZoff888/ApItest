@@ -1,0 +1,42 @@
+tests:
+  - case: 传参为空  # 测试用例名称
+    http:  # 请求对象
+      path: /news/getNewsList
+      headers:
+        User-Agent:
+      params: #请求体
+        page: 1
+        pagesize : 10
+    expected:  # 预期结果
+      response:
+        status: True
+        message: Success
+        data: True
+
+  - case: 传参为空  # 测试用例名称
+    http:  # 请求对象
+      path: /news/getNewsList
+      headers:
+        User-Agent:
+      params: #请求体
+        page: -2
+        pagesize : 10
+    expected:  # 预期结果
+      response:
+        status: True
+        message: Success
+        data: True
+
+  - case: 传参为空  # 测试用例名称
+    http: # 请求对象
+      path: /news/getNewsList
+      headers:
+        User-Agent:
+      params: #请求体
+        page: 3
+        pagesize: 0
+    expected: # 预期结果
+      response:
+        status: True
+        message: Success
+        data: True
