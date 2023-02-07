@@ -1,12 +1,30 @@
-test/foundry/BitMap.t.sol:BitMapTest:
-- testBitMap(): 42805
-test/foundry/DeOrder/AbortOrder.t.sol:AbortOrder:
-- testAbortOrder(): 384113
-- testCannotAbortOrder(): 343148
-- testCannotConfirmIusserAbortOrder(): 336298
-- testCannotConfirmWorkerAbortOrder(): 336694
-- testCannotDueIusserAbortOrder(): 395681
-- testCannotDueWorkerAbortOrder(): 336485
-- testCannotSetDeStage(): 13831
-- testConfirmLongtime(): 360477
-- testDueLongtime(): 345071
+---
+tests:
+  - case: 1111111  # 测试用例名称
+    http:  # 请求对象
+      host: http://127.0.0.1:8000/
+      path: proxy/
+      method: GET
+      headers:
+        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+      params:
+        about: all
+    expected:  # 预期结果
+      response:
+        status: True
+        message: Success
+        data: True
+  - case: 222222222222222
+    http:
+      host: http://127.0.0.1:8000/
+      path: proxy/
+      method: GET
+      headers:
+        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+      params:
+        about: valid
+    expected:
+      response:
+        status: True
+        message: Success
+        data: True

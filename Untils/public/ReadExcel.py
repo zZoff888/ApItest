@@ -28,6 +28,8 @@ class ReadExcel():
      def read1(self,fileaddress=None,raw=None):
          s = ReadExcel.readExcel(fileaddress,raw)
          return s
+
+
 # if __name__ == '__main__':
     # s = ReadExcel.readExcel(bady_Path,"需求")
     # inter=s[0]["url"]

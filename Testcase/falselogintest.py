@@ -2,58 +2,25 @@ import unittest
 from ddt import *
 from Config.config import bady_Path
 from Untils.public.ReadExcel import ReadExcel
-from pages.test import Login
+from API.NewApi import New
+from Untils.public.read_yaml import read_Yaml
 
-@ddt()
+a = read_Yaml.readYaml('test')
+# print(a)
+# @ddt()
 class TestDemo(unittest.TestCase):
-    interexcle = None
-    url=None
-    bady=None
-    interexcle = ReadExcel.readExcel(bady_Path, "签名")
-    getLoginMessagedata=[]
-    for i in interexcle:
-        # print(i,type(i))
-        url = i["url"]
-        a = '/sign/getLoginMessage'
-        if url == a:
-            bady = i["请求参数"]
-            getLoginMessagedata.append(bady)
-    # print(getLoginMessagedata,type(getLoginMessagedata))
-    authLoginSign=[]
-    for i in interexcle:
-        # print(i,type(i))
-        url = i["url"]
-        a = '/sign/authLoginSign'
-        if url == a:
-            bady = i["请求参数"]
-            authLoginSign.append(bady)
-    # print(authLoginSign)
 
-    @data(*getLoginMessagedata)
-    # @unpack
-    def test_05_list(self, bady1):
-        a=json.loads(bady1)
-        Login.set()
-
-        try:
-            value=Login.getLoginMessage(a) # 此处为运行报错语句
-            self.assertIn(7, value)
-        except KeyError as e:
-            print(e)  # 打印异常说明
-
-    @data(*authLoginSign)
-    def test_07_list(self, bady1):
-        b={"address":"0x089c71Ee176b4F2F4D11aD99d8901CaAa32eF6cb"}
-        a = json.loads(bady1)
-        Login.set()
-        Login.getLoginMessage(b)
-        try:
-            value=Login.authLoginSign(a) # 此处为运行报错语句
-            self.assertIn(7, value)
-        except KeyError as e:
-            print(e)  # 打印异常说明
-        # print(bady1)
-
+    def test01(self):
+        # interexcle = None
+        # url = None
+        # #     bady=None
+        # interexcle = read_Yaml.readYaml('test')
+        # print(interexcle)
+        # # getLoginMessagedata=[]
+        # # print(interexcle)
+        # a = read_Yaml.readYaml('test')['getNewsInfo'][1]['bady']
+        bady = {"id": 1}
+        New.getNewsInfo('/news/getNewsInfo', bady)
 
 
 if __name__ == '__main__':
