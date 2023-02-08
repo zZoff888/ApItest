@@ -16,7 +16,7 @@ class New():
         # print(read_ini(env_Path).data('evn'))
         log = logger()
         # print(bady)
-        with requests.get(url=url,json=bady) as response:
+        with requests.post(url=url,json=bady) as response:
             log.info('获取文章内容：%s' % response.json()['msg']+'\n位置为:API.NewApi.getNewsInfo')
             return response.json()['msg']
             # print(response.json()['msg'])
@@ -55,12 +55,12 @@ class New():
             return response.json()['msg']
 
     @classmethod
-    def createNews(cls,api,bady):
+    def createNews(cls,api,body):
         url=read_ini(env_Path).data('evn').get('ip')+api
         # print(url)
         log = logger()
         # print(bady)
-        with requests.post(url=url,json=bady) as response:
+        with requests.post(url=url,json=body) as response:
             log.info('重新编辑一篇文章内容：%s' % response.json()['msg']+'\n位置为:API.NewApi.createNews')
             # print(response.json())
             return response.json()['msg']

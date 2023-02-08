@@ -1,0 +1,36 @@
+tests:
+  - case: 1111111  # 测试用例名称
+    http:  # 请求对象
+      host: http://192.168.1.10:8092
+      path: /news/getNewsList
+      method: GET
+      headers:
+        User-Agent:
+      body:
+        page: 1
+        pagesize: 10
+    expected:  # 预期结果
+      code:
+        status: True
+      data:
+        message: Success
+        data: True
+      msg: 获取成功
+
+  - case: 222222222222222
+    http:
+      host: http://192.168.1.10:8092
+      path: /news/getNewsList
+      method: GET
+      headers:
+        User-Agent:
+      body:
+        page: 1
+        pagesize: 10
+    expected:
+      code:
+        status: True
+      data:
+        message: Success
+        data: True
+      msg: 获取成功
