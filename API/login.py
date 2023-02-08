@@ -21,30 +21,34 @@ class Login():
             # print(response.json())
             cls.captchaId=response.json()['data']['captchaId']
             picPath=response.json()['data']['picPath']+','
+            # print(response.json())
+            # picPath=response.json()['data']['picPath']+','
+
             # print(picPath)
             # bese64
-            cls.picPath=list(picPath.split(",")[1].split())[0]
+            cls.picPath=list(picPath.split(",")[1].split())[-1]
+            bese.bese_shift(f'{cls.picPath}')
+        # print(cls.picPath)
     @classmethod
     def login(cls,api):
-        url = read_ini(env_Path).data('evn').get('ip') + api
-        log = logger()
-        # print(bady)
-        bese.bese_shift(f'{cls.picPath}')
-        cls.picPath=codedemo.ddddddor(r'1.jpg')
-        # print(a)
+        while True:
+            url = read_ini(env_Path).data('evn').get('ip') + api
+            log = logger()
+            # print(bady)
+            cls.picPath = codedemo.ddddddor(r'1.jpg')
+            # print(a)
 
-        body = {"username": "admin1", "password": "123456", "captcha": f'{cls.picPath}',
-                "CaptchaId": f"{cls.captchaId}"}
-        msg=None
-        while msg != '登录成功':
+            body = {"username": "admin1", "password": "123456", "captcha": f'{cls.picPath}',
+                    "CaptchaId": f"{cls.captchaId}"}
+
+
             with requests.post(url=url,json=body) as response:
                 msg=response.json()['msg']
-            # print(response.json()['msg'])
-            time.sleep(1)
-        else:
-            cls.token=response.json()['data']['token']
-            # print(token)
-        log.info(f'{response.json()["msg"]}')
+                if msg == '登录成功':
+                    cls.token = response.json()['data']['token']
+                    print(cls.token)
+                    break
+            Login.getcode('/user/captcha')
 
 if __name__ == '__main__':
     #
