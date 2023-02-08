@@ -5,7 +5,7 @@ from Config.config import data_Path
 
 
 
-test_data = read_Yaml.get_yaml_test_data(data_Path+'test'+'.yaml')
+test_data = read_Yaml.get_yaml_test_data(data_Path+'r'+'.yaml')
 print(test_data)
 @ddt
 class TestAPI(unittest.TestCase):
@@ -20,14 +20,14 @@ class TestAPI(unittest.TestCase):
 
     @unpack
     @data(*test_data)
-    def test_proxy(self, case, http, expected):
+    def test_proxy(self, case, http,expected):
         # r = requests.request(http['method'],
         #                      url=http['host'] + http['path'],
         #                      headers=http['headers'],
         #                      params=http['params'])
         # resp = r.json()
-        print(http['headers'])
-        print(case)
+        print(http)
+        # print(case)
         #
         # self.assertEqual(resp['status'], expected['response']['status'])
         # self.assertEqual(resp['message'], expected['response']['message'])

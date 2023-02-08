@@ -1,0 +1,14 @@
+tests:
+  - case: 1
+    http:
+      url: vyhert/fggre
+      method : post
+      header :
+        User-Agent: 1
+        x-token: gergyghrnrtytryrthrtyrtyhrty
+        datatype : json
+        data : {id=1}
+    expected:
+      response :
+        code : 122
+        responseData : grreerg

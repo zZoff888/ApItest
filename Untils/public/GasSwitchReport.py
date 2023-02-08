@@ -65,5 +65,4 @@ class GasTurnYaml():
         # with open(self.saveroot, 'w') as file:
         #     file.write(yaml.dump(dir, allow_unicode=True))
 a='/Users/mac/Desktop/detask/code-market/report1.txt'
-# b='/Users/mac/Desktop/web/web/Data/test.yaml'
 GasTurnYaml(a).dirToYaml()

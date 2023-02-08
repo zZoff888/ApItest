@@ -18,7 +18,7 @@ class ReadExcel():
          if nrows > 1:
              #获取第一行的内容，列表格式
              keys = table.row_values(0)
-             #print(keys)
+             #(keys)
 
              listApiData = []
              #获取每一行的内容，列表格式
@@ -26,7 +26,7 @@ class ReadExcel():
                  values = table.row_values(col)
                  # keys，values这两个列表一一对应来组合转换为字典
                  api_dict = dict(zip(keys, values))
-                 #print(api_dict)
+                 #(api_dict)
                  listApiData.append(api_dict)
              return listApiData
          else:
@@ -43,13 +43,13 @@ class ReadExcel():
 
          # if not os.path.exists(filepath):
          #     raise ValueError(f'({filepath}) - 文件不存在，请检查！')
-         # print(filepath)
-         # print(sheet_name)
+         # (filepath)
+         # (sheet_name)
          data = pd.read_excel(filepath, sheet_name=sheet_name)  # 读取表格
          # print(data)
          data.fillna('', inplace=True)  # 替换所有的缺失值为空字符""
          new_list = data.values.tolist()
-         # print(new_list)
+         # print (new_list)
          return new_list
 
      def read1(self,fileaddress=None,raw=None):
@@ -57,10 +57,12 @@ class ReadExcel():
          return s
 
 
-# if __name__ == '__main__':
-    # s = ReadExcel.readExcel(bady_Path,"需求")
-    # inter=s[0]["url"]
-    #
-    # ReadExcel.get_excel_test_data('bady.xlsx','qq')
+if __name__ == '__main__':
+#     # s = ReadExcel.readExcel(bady_Path,"qq")
+#     # inter=s[0]["url"]
+#
+    a=ReadExcel.get_excel_test_data('bady.xlsx','qq')
+    print(a)
+    print(a[0][0])
     # bady=s[1]["请求参数"]
-    # print(inter,bady)
+    # (inter,bady)

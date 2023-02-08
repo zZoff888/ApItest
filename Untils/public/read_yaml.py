@@ -20,7 +20,7 @@ class read_Yaml():
         f=f = open(yaml_Path, "r")
         data=yaml.safe_load(f)
         f.close()
-        # print(data)
+        print(data)
         return data
     # 覆盖写入
     def generate_yaml_doc(data,filename):
@@ -41,6 +41,7 @@ class read_Yaml():
         expected = []  # 存储预期结果
         with open(filepath) as f:
             data = yaml.load(f.read(), Loader=yaml.SafeLoader)
+            print(data)
             test = data['tests']
             for each in test:
                 case.append(each.get('case', ''))
@@ -48,8 +49,9 @@ class read_Yaml():
                 expected.append(each.get('expected', {}))
         params = list(zip(case, http, expected))  # 将每条用例解包在一起
         return params
-
-read_Yaml.readYaml("test")
+# if __name__ == '__main__':
+#     read_Yaml.readYaml("r")
+# test_data = read_Yaml.get_yaml_test_data(data_Path+'r'+'.yaml')
 # py_object = {'school': 'zhang',
 #              'students': ['a', 'b']}
 # read_Yaml.generate_yaml_doc(py_object,"gg")

@@ -46,6 +46,6 @@ class read_xlrd(object):
             data = Sheet.row_values(row, start_clo, end_clo)
             return data
 read = read_xlrd(filename=r"{}".format(bady_Path))
-sheet = read.Sheet("需求")
-infor_dict = dict(list(zip(read.all_cols(sheet, 0)[1:], read.all_cols(sheet, 1)[1:])))
+sheet = read.Sheet("qq")
+infor_dict = dict(list(zip(read.all_cols(sheet, 1)[0:], read.all_cols(sheet, 2)[1:])))
 print(infor_dict)
